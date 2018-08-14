@@ -48,6 +48,8 @@ set smarttab
 set autoindent
 "背景
 set background=dark
+"禁用复制自动注释
+set paste
 
 set softtabstop=4
 "打开树形列表
