@@ -1,113 +1,80 @@
-"å…³é—­å…¼å®¹
+filetype plugin indent on
+"¹Ø±Õ¼æÈİ
 set nocompatible
-"Windowså¿«æ·é”®
+filetype off
+"Windows¿ì½İ¼ü
 source $VIMRUNTIME/vimrc_example.vim
-source $VIMRUNTIME/mswin.vim
-behave mswin
-"å­—ä½“è®¾ç½®
-set guifont=å¾®è½¯é›…é»‘:h13:cGB2312
-"å½“å‰ç¼–è¾‘çš„æ–‡ä»¶ç¼–ç 
+"source $VIMRUNTIME/mswin.vim
+"behave mswin
+"×ÖÌåÉèÖÃ
+set guifont=Î¢ÈíÑÅºÚ:h13:cGB2312
+"µ±Ç°±à¼­µÄÎÄ¼ş±àÂë
 set fileencoding=utf-8
-"æ”¯æŒçš„ç¼–ç 
+"Ö§³ÖµÄ±àÂë
 set fileencodings=ucs-bom,utf-8,chinese,cp936
-
 set encoding=utf-8
 set termencoding=utf-8
-"è§£å†³èœå•ä¹±ç 
+"½â¾ö²Ëµ¥ÂÒÂë
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
-"è§£å†³è¾“å‡ºä¹±ç 
+"½â¾öÊä³öÂÒÂë
 language messages zh_CN.utf-8
-"é˜²æ­¢ç‰¹æ®Šç¬¦å·æ— æ³•æ­£å¸¸æ˜¾ç¤º
+"·ÀÖ¹ÌØÊâ·ûºÅÎŞ·¨Õı³£ÏÔÊ¾
 set ambiwidth=double
-"é«˜äº®
+"ÏÔÊ¾±ê³ß
+set ruler
+"ÏÔÊ¾²Ù×÷
+set showcmd
+"¸ßÁÁ
 syntax on
-"é…è‰²
+set cursorline cursorcolumn
+"ÅäÉ«
 colo evening
-"å…³é—­å·¥å…·æ /æ»šåŠ¨æ¡
+"¹Ø±Õ¹¤¾ßÀ¸/¹ö¶¯Ìõ
 set go=
-"æ˜¾ç¤ºæœ€å¤šè¡Œ
+"ÏÔÊ¾×î¶àĞĞ
 set dy=lastline
-"è¡Œå·
+"ÏÔÊ¾Æ¥ÅäÀ¨ºÅ
+set showmatch
+"ĞĞºÅ
 set number
-"ç¼©è¿›4ç©ºæ ¼
+"ÖÆ±í·ûËõ½ø4¿Õ¸ñ
 set shiftwidth=4
-"tabå®½4å­—ç¬¦
+"ÖÆ±í·û¿í4×Ö·û
 set tabstop=4
-"æ˜¾ç¤ºtabæ ‡ç­¾
-set showtabline=2
-"çª—å£å®½
-set columns=200
-"çª—å£é«˜
-set lines=50
-"tabæ›¿æ¢ä¸ºç©ºæ ¼
+"ÖÆ±í·ûÌæ»»Îª¿Õ¸ñ
 set expandtab
-"é€€æ ¼åˆ é™¤4ä¸ªç©ºæ ¼
-set smarttab
-"è‡ªåŠ¨ç¼©è¿›
-set autoindent
-"èƒŒæ™¯
-set background=dark
-"ç¦ç”¨å¤åˆ¶è‡ªåŠ¨æ³¨é‡Š
-set paste
-
+"ÍË¸ñÉ¾³ı4¸ö¿Õ¸ñ
 set softtabstop=4
-"æ‰“å¼€æ ‘å½¢åˆ—è¡¨
-nmap <silent> <c-n> :NERDTreeToggle<CR>
-
-inoremap <C-u> <esc>gUiwea
+"×Ô¶¯Ëõ½ø
+set autoindent
+"ÏÔÊ¾¶¥²¿tab±êÇ©
+set showtabline=2
+"±³¾°
+set background=dark
+"½ûÓÃ¸´ÖÆ×Ô¶¯×¢ÊÍ
+set paste
+"È¡ÏûÈ·ÈÏ
 set shortmess=atI
+"×Ô¶¯±£´æ
 set autowrite
+"ÀúÊ·¼ÇÂ¼
 set history=1000
-"ç¦ç”¨æ–¹å‘é”®
+"½ûÓÃ·½Ïò¼ü
 noremap <up> <nop>
 noremap <down> <nop>
 noremap <left> <nop>
 noremap <right> <nop>
-
+"ÏµÍ³¼ôÇĞ°å
 set clipboard+=unnamed
-"ä¸ç”Ÿæˆå¤‡ä»½æ–‡ä»¶
+"²»Éú³É±¸·İÎÄ¼ş
 set noundofile
 set nobackup
-set noswapfile
-"ç¦ç”¨é¼ æ ‡
+"²»Éú³ÉÒâÍâÍË³ö±¸·İÎÄ¼ş
+"set noswapfile
+"½ûÓÃÊó±ê
 "set mouse-=a
-
-
-set diffexpr=MyDiff()
-function MyDiff()
-    let opt = '-a --binary '
-    if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
-    if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
-    let arg1 = v:fname_in
-    if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
-    let arg2 = v:fname_new
-    if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
-    let arg3 = v:fname_out
-    if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
-    if $VIMRUNTIME =~ ' '
-        if &sh =~ '\<cmd'
-            if empty(&shellxquote)
-                let l:shxq_sav = ''
-                set shellxquote&
-            endif
-            let cmd = '"' . $VIMRUNTIME . '\diff"'
-        else
-            let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
-        endif
-    else
-        let cmd = $VIMRUNTIME . '\diff'
-    endif
-    silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3
-    if exists('l:shxq_sav')
-        let &shellxquote=l:shxq_sav
-    endif
-endfunction
-
-"emmet å¿«æ·é”®
-let g:user_emmet_expandabbr_key = '<S-Tab>'
-
-"æœ€å¤§åŒ–çª—å£
+"×î´ó»¯´°¿Ú
 if has('win32')
     au GUIEnter * simalt ~x
 else
@@ -116,3 +83,38 @@ endif
 function! MaximizeWindow()
     silent !wmctrl -r :ACTIVE: -b add,maximized_vert,maximized_horz
 endfunction
+
+"VundleµÄÂ·¾¶
+set rtp+=$VIM/vimfiles/bundle/Vundle.vim
+"²å¼şµÄ°²×°Â·¾¶
+call vundle#begin('$VIM/vimfiles/bundle/')
+Plugin 'tomasr/molokai'
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'ctrlp.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'mattn/emmet-vim'
+"Plugin 'othree/yajs.vim'
+Plugin 'mxw/vim-jsx'
+Plugin 'pangloss/vim-javascript'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'tpope/vim-surround'
+call vundle#end()
+
+"molokai
+syntax enable
+colorscheme molokai
+highlight NonText guibg=#060606
+highlight Folded  guibg=#0A0A0A guifg=#9090D0
+"´ò¿ªÊ÷ĞÎÁĞ±í
+nmap <C-n> :NERDTreeToggle<CR>
+let NERDTreeShowLineNumbers=1
+let NERDTreeShowHidden=1
+"emmet ¿ì½İ¼ü
+let g:user_emmet_expandabbr_key = '<S-Tab>'
+"ctrlP
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.png,*.jpg,*.jpeg,*.gif " MacOSX/Linux
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+"javascript
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_ngdoc = 1
+let g:javascript_plugin_flow = 1
