@@ -28,14 +28,12 @@ set showcmd
 "高亮
 syntax on
 set cursorline cursorcolumn
-"配色
-colo evening
 "关闭工具栏/滚动条
 set go=
 "显示最多行
 set dy=lastline
 "显示匹配括号
-set showmatch
+"set showmatch
 "行号
 set number
 "制表符缩进4空格
@@ -50,8 +48,6 @@ set softtabstop=4
 set autoindent
 "显示顶部tab标签
 set showtabline=2
-"背景
-set background=dark
 "禁用复制自动注释
 set paste
 "取消确认
@@ -83,13 +79,30 @@ endif
 function! MaximizeWindow()
     silent !wmctrl -r :ACTIVE: -b add,maximized_vert,maximized_horz
 endfunction
-
+"初始化
+autocmd BufNewFile *.html exec ':call HTMLModel()'
+func HTMLModel()
+    call setline(1,"<!DOCTYPE html>")
+    call append(line("."),      "<html>")
+    call append(line(".")+1,    "    <head>")
+    call append(line(".")+2,    "        <meta charset='utf-8' />")
+    call append(line(".")+3,    "        <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no' />")
+    call append(line(".")+4,    "        <meta http-equiv='X-UA-Compatible' content='IE=Edge,chrome=1' />")
+    call append(line(".")+5,    "        <meta name='renderer' content='webkit' />")
+    call append(line(".")+6,    "        <title></title>")
+    call append(line(".")+7,    "    </head>")
+    call append(line(".")+8,    "    <body>")
+    call append(line(".")+9,    "        ")
+    call append(line(".")+10,   "    </body>")
+    call append(line(".")+11,   "</html>")
+endfunc
+autocmd BufNewFile *.html normal 11G$
 "Vundle的路径
 set rtp+=$VIM/vimfiles/bundle/Vundle.vim
 "插件的安装路径
 call vundle#begin('$VIM/vimfiles/bundle/')
-Plugin 'tomasr/molokai'
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'tomasr/molokai'
 Plugin 'ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'mattn/emmet-vim'
@@ -97,7 +110,6 @@ Plugin 'mattn/emmet-vim'
 Plugin 'mxw/vim-jsx'
 Plugin 'pangloss/vim-javascript'
 Plugin 'jiangmiao/auto-pairs'
-Plugin 'tpope/vim-surround'
 call vundle#end()
 
 "molokai
@@ -105,7 +117,7 @@ syntax enable
 colorscheme molokai
 highlight NonText guibg=#060606
 highlight Folded  guibg=#0A0A0A guifg=#9090D0
-"打开树形列表
+"树形表
 nmap <C-n> :NERDTreeToggle<CR>
 let NERDTreeShowLineNumbers=1
 let NERDTreeShowHidden=1
