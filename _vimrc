@@ -1,80 +1,80 @@
 filetype plugin indent on
-"å…³é—­å…¼å®¹
+"¹Ø±Õ¼æÈİ
 set nocompatible
 filetype off
-"Windowså¿«æ·é”®
+"Windows¿ì½İ¼ü
 source $VIMRUNTIME/vimrc_example.vim
 "source $VIMRUNTIME/mswin.vim
 "behave mswin
-"å­—ä½“è®¾ç½®
-set guifont=å¾®è½¯é›…é»‘:h13:cGB2312
-"å½“å‰ç¼–è¾‘çš„æ–‡ä»¶ç¼–ç 
+"×ÖÌåÉèÖÃ
+set guifont=Î¢ÈíÑÅºÚ:h13:cGB2312
+"µ±Ç°±à¼­µÄÎÄ¼ş±àÂë
 set fileencoding=utf-8
-"æ”¯æŒçš„ç¼–ç 
+"Ö§³ÖµÄ±àÂë
 set fileencodings=ucs-bom,utf-8,chinese,cp936
 set encoding=utf-8
 set termencoding=utf-8
-"è§£å†³èœå•ä¹±ç 
+"½â¾ö²Ëµ¥ÂÒÂë
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
-"è§£å†³è¾“å‡ºä¹±ç 
+"½â¾öÊä³öÂÒÂë
 language messages zh_CN.utf-8
-"é˜²æ­¢ç‰¹æ®Šç¬¦å·æ— æ³•æ­£å¸¸æ˜¾ç¤º
+"·ÀÖ¹ÌØÊâ·ûºÅÎŞ·¨Õı³£ÏÔÊ¾
 set ambiwidth=double
-"æ˜¾ç¤ºæ ‡å°º
+"ÏÔÊ¾±ê³ß
 set ruler
-"æ˜¾ç¤ºæ“ä½œ
+"ÏÔÊ¾²Ù×÷
 set showcmd
-"é«˜äº®
+"¸ßÁÁ
 syntax on
 set cursorline cursorcolumn
-"å…³é—­å·¥å…·æ /æ»šåŠ¨æ¡
+"¹Ø±Õ¹¤¾ßÀ¸/¹ö¶¯Ìõ
 set go=
-"æ˜¾ç¤ºæœ€å¤šè¡Œ
+"ÏÔÊ¾×î¶àĞĞ
 set dy=lastline
-"æ˜¾ç¤ºåŒ¹é…æ‹¬å·
+"ÏÔÊ¾Æ¥ÅäÀ¨ºÅ
 "set showmatch
-"è¡Œå·
+"ĞĞºÅ
 set number
-"åˆ¶è¡¨ç¬¦ç¼©è¿›4ç©ºæ ¼
+"ÖÆ±í·ûËõ½ø4¿Õ¸ñ
 set shiftwidth=4
-"åˆ¶è¡¨ç¬¦å®½4å­—ç¬¦
+"ÖÆ±í·û¿í4×Ö·û
 set tabstop=4
-"åˆ¶è¡¨ç¬¦æ›¿æ¢ä¸ºç©ºæ ¼
+"ÖÆ±í·ûÌæ»»Îª¿Õ¸ñ
 set expandtab
-"é€€æ ¼åˆ é™¤4ä¸ªç©ºæ ¼
+"ÍË¸ñÉ¾³ı4¸ö¿Õ¸ñ
 set softtabstop=4
-"è‡ªåŠ¨ç¼©è¿›
+"×Ô¶¯Ëõ½ø
 set autoindent
-"æ˜¾ç¤ºé¡¶éƒ¨tabæ ‡ç­¾
+"ÏÔÊ¾¶¥²¿tab±êÇ©
 set showtabline=2
-"ç¦ç”¨å¤åˆ¶è‡ªåŠ¨æ³¨é‡Š
+"½ûÓÃ¸´ÖÆ×Ô¶¯×¢ÊÍ
 set paste
-"å–æ¶ˆç¡®è®¤
+"È¡ÏûÈ·ÈÏ
 set shortmess=atI
-"è‡ªåŠ¨ä¿å­˜
+"×Ô¶¯±£´æ
 set autowrite
-"å†å²è®°å½•
+"ÀúÊ·¼ÇÂ¼
 set history=1000
-"ç¦ç”¨æ–¹å‘é”®
+"½ûÓÃ·½Ïò¼ü
 noremap <up> <nop>
 noremap <down> <nop>
 noremap <left> <nop>
 noremap <right> <nop>
-"ç³»ç»Ÿå‰ªåˆ‡æ¿
+"ÏµÍ³¼ôÇĞ°å
 set clipboard+=unnamed
-"ä¸ç”Ÿæˆå¤‡ä»½æ–‡ä»¶
+"²»Éú³É±¸·İÎÄ¼ş
 set noundofile
 set nobackup
-"ä¸ç”Ÿæˆæ„å¤–é€€å‡ºå¤‡ä»½æ–‡ä»¶
+"²»Éú³ÉÒâÍâÍË³ö±¸·İÎÄ¼ş
 "set noswapfile
-"ç¦ç”¨é¼ æ ‡
+"½ûÓÃÊó±ê
 "set mouse-=a
-"è®¾ç½®ç©ºæ ¼ä¸ºleader
+"ÉèÖÃ¿Õ¸ñÎªleader
 let mapleader = "\<space>"
-"åˆ·æ–°é¢œè‰²
+"Ë¢ĞÂÑÕÉ«
 noremap <Leader>r <Esc>:syntax sync fromstart<CR>
-"æœ€å¤§åŒ–çª—å£
+"×î´ó»¯´°¿Ú
 if has('win32')
     au GUIEnter * simalt ~x
 else
@@ -83,7 +83,7 @@ endif
 function! MaximizeWindow()
     silent !wmctrl -r :ACTIVE: -b add,maximized_vert,maximized_horz
 endfunction
-"åˆå§‹åŒ–
+"³õÊ¼»¯
 autocmd BufNewFile *.html exec ':call HTMLModel()'
 func HTMLModel()
     call setline(1,"<!DOCTYPE html>")
@@ -101,9 +101,9 @@ func HTMLModel()
     call append(line(".")+11,   "</html>")
 endfunc
 autocmd BufNewFile *.html normal 11G$
-"Vundleçš„è·¯å¾„
+"VundleµÄÂ·¾¶
 set rtp+=$VIM/vimfiles/bundle/Vundle.vim
-"æ’ä»¶çš„å®‰è£…è·¯å¾„
+"²å¼şµÄ°²×°Â·¾¶
 call vundle#begin('$VIM/vimfiles/bundle/')
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tomasr/molokai'
@@ -121,11 +121,11 @@ syntax enable
 colorscheme molokai
 highlight NonText guibg=#060606
 highlight Folded  guibg=#0A0A0A guifg=#9090D0
-"æ ‘å½¢è¡¨
+"Ê÷ĞÎ±í
 nmap <C-n> :NERDTreeToggle<CR>
 let NERDTreeShowLineNumbers=1
 let NERDTreeShowHidden=1
-"emmet å¿«æ·é”®
+"emmet ¿ì½İ¼ü
 let g:user_emmet_expandabbr_key = '<S-Tab>'
 "ctrlP
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.png,*.jpg,*.jpeg,*.gif " MacOSX/Linux
