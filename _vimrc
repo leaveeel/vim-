@@ -83,8 +83,8 @@ nmap <C-x> dd
 "克隆行
 nmap <C-d> yyp
 "注释
-nmap <M-\> :call HtmlAnnotation()<cr>
-nmap <M-/> :call JsAnnotation()<cr>
+nmap <A-\> :call HtmlAnnotation()<cr>
+nmap <A-/> :call JsAnnotation()<cr>
 
 function HtmlAnnotation()
     let line = getline('.')
@@ -113,7 +113,16 @@ function JsAnnotation()
         return
     endif
 endfunction
-
+"选中文本添加括号
+vmap <A-9> c(<A-b><Esc>p
+vmap <A-'> c'<A-b><Esc>p
+vmap <A-"> c"<A-b><Esc>p
+vmap <A-[> c[,<cr><Esc>k$"_xp
+vmap <A-{> c{,<cr><Esc>k$"_xp
+"新建函数
+imap f<Tab> function() {,<cr><Esc>k$"_xF(a
+imap af<Tab> () => {,<cr><Esc>k$"_xF(a
+imap as<Tab> async function() {,<cr><Esc>k$"_xF(a
 "最大化窗口
 if has('win32')
     au GUIEnter * simalt ~x
@@ -123,7 +132,7 @@ endif
 function! MaximizeWindow()
     silent !wmctrl -r :ACTIVE: -b add,maximized_vert,maximized_horz
 endfunction
-"初始化
+"新html文件初始化
 autocmd BufNewFile *.html exec ':call HTMLModel()'
 func HTMLModel()
     call setline(1,"<!DOCTYPE html>")
