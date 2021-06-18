@@ -80,6 +80,8 @@ noremap <Leader>r <Esc>:syntax sync fromstart<CR>
 autocmd BufRead * exec ':syntax sync fromstart'
 "¼ôÇÐÐÐ
 nmap <C-x> dd
+"¿ËÂ¡ÐÐ
+nmap <C-d> yyp
 "×¢ÊÍ
 nmap <M-\> :call HtmlAnnotation()<cr>
 nmap <M-/> :call JsAnnotation()<cr>
