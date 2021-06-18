@@ -56,6 +56,8 @@ set shortmess=atI
 set autowrite
 "历史记录
 set history=1000
+"自动折行
+set wrap
 "禁用方向键
 noremap <up> <nop>
 noremap <down> <nop>
@@ -74,6 +76,42 @@ set nobackup
 let mapleader = "\<space>"
 "刷新颜色
 noremap <Leader>r <Esc>:syntax sync fromstart<CR>
+"启动时刷新颜色
+autocmd BufRead * exec ':syntax sync fromstart'
+"剪切行
+nmap <C-x> dd
+"注释
+nmap <M-\> :call HtmlAnnotation()<cr>
+nmap <M-/> :call JsAnnotation()<cr>
+
+function HtmlAnnotation()
+    let line = getline('.')
+    if line =~ '[^S]<!-- *.* *-->$'
+        normal ^xxxxd^$xxx
+        exec ':s/\s*$//g'
+        normal j
+        return
+    else
+        normal I<!-- 
+        normal $a -->
+        normal j
+        return
+    endif
+endfunction
+
+function JsAnnotation()
+    let line = getline('.')   
+    if line =~ '[^S]// *.*$'
+        normal ^xxd^
+        normal j
+        return
+    else
+        normal I// 
+        normal j
+        return
+    endif
+endfunction
+
 "最大化窗口
 if has('win32')
     au GUIEnter * simalt ~x
