@@ -77,7 +77,7 @@ let mapleader = "\<space>"
 "刷新颜色
 noremap <Leader>r <Esc>:syntax sync fromstart<CR>
 "启动时刷新颜色
-autocmd BufRead * exec ':syntax sync fromstart'
+autocmd BufNewFile,BufRead * exec ':syntax sync fromstart'
 "剪切行
 nmap <C-x> dd
 "克隆行
@@ -88,7 +88,7 @@ nmap <A-/> :call JsAnnotation()<cr>
 
 function HtmlAnnotation()
     let line = getline('.')
-    if line =~ '[^S]<!-- *.* *-->$'
+    if line =~ '^\(	*\| *\)<!-- *.* *-->$'
         normal ^xxxxd^$xxx
         exec ':s/\s*$//g'
         normal j
@@ -103,7 +103,7 @@ endfunction
 
 function JsAnnotation()
     let line = getline('.')   
-    if line =~ '[^S]// *.*$'
+    if line =~ '^\(	*\| *\)// *.*$'
         normal ^xxd^
         normal j
         return
@@ -114,15 +114,18 @@ function JsAnnotation()
     endif
 endfunction
 "选中文本添加括号
-vmap <A-9> c(<A-b><Esc>p
-vmap <A-'> c'<A-b><Esc>p
-vmap <A-"> c"<A-b><Esc>p
+vmap <A-9> c(<Esc>p
+vmap <A-'> c'<Esc>p
+vmap <A-"> c"<Esc>p
 vmap <A-[> c[,<cr><Esc>k$"_xp
 vmap <A-{> c{,<cr><Esc>k$"_xp
 "新建函数
 imap f<Tab> function() {,<cr><Esc>k$"_xF(a
 imap af<Tab> () => {,<cr><Esc>k$"_xF(a
 imap as<Tab> async function() {,<cr><Esc>k$"_xF(a
+imap c<Tab>  {,<cr><Esc>k$"_xo<Tab>
+"自动缩进
+"autocmd BufWritePre,BufRead * :normal gg=G
 "最大化窗口
 if has('win32')
     au GUIEnter * simalt ~x
