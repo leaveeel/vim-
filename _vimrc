@@ -166,6 +166,7 @@ Plugin 'mattn/emmet-vim'
 Plugin 'mxw/vim-jsx'
 Plugin 'pangloss/vim-javascript'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'leafgarland/typescript-vim'
 call vundle#end()
 
 "molokai
@@ -187,3 +188,5 @@ let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_ngdoc = 1
 let g:javascript_plugin_flow = 1
 let javascript_enable_domhtmlcss = 1
+"typescript
+let g:typescript_indent_disable = 1
